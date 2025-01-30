@@ -33,6 +33,12 @@ class CreatePassword : AppCompatActivity() {
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         }
 
+        testMethod()
 
+    }
+
+    private fun testMethod() {
+
+        /*A TEST METHOD FOR GIT PUSH*/
     }
 }
