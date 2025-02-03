@@ -11,8 +11,9 @@ import com.fca.fitnessclothingapp.modelclass.ShoppingItem
 class ShoppingAdapter(private val itemList: List<ShoppingItem>) :
     RecyclerView.Adapter<ShoppingAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    private var selectedPosition = 0
 
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.itemName)
     }
 
@@ -25,7 +26,20 @@ class ShoppingAdapter(private val itemList: List<ShoppingItem>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = itemList[position]
         holder.textView.text = item.name
-     }
+
+
+        if (position == selectedPosition) {
+            holder.textView.setTextColor(holder.itemView.context.getColor(R.color.black))
+        } else {
+            holder.textView.setTextColor(holder.itemView.context.getColor(R.color.gray_8D95A3))
+        }
+
+
+        holder.itemView.setOnClickListener {
+            selectedPosition = position
+            notifyDataSetChanged()
+        }
+    }
 
     override fun getItemCount(): Int = itemList.size
 }

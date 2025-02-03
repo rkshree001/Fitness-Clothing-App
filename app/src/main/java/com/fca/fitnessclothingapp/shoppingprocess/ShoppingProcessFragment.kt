@@ -19,22 +19,32 @@ class ShoppingProcessFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_shopping_process, container, false)
 
-        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        val categoryRecyclerView: RecyclerView = view.findViewById(R.id.categoryRecyclerView)
+        val categoryContentRecyclerView: RecyclerView = view.findViewById(R.id.categoryContentRecyclerView)
+        categoryRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
 
         val items = listOf(
-            ShoppingItem("Running Shoes"),
-            ShoppingItem("Sports T-Shirt"),
-            ShoppingItem("Gym Gloves" ),
-            ShoppingItem("Water Bottle")
+            ShoppingItem("New Releases"),
+            ShoppingItem("Women"),
+            ShoppingItem("Men"),
+            ShoppingItem("Kids"),
+            ShoppingItem("Sale"),
+            ShoppingItem("Trending Now"),
+            ShoppingItem("Sportswear"),
+            ShoppingItem("Shoes"),
+            ShoppingItem("Accessories"),
+            ShoppingItem("Gym Essentials"),
+            ShoppingItem("Winter Collection"),
+            ShoppingItem("Summer Collection"),
+            ShoppingItem("Best Sellers"),
+            ShoppingItem("Casual Wear"),
+            ShoppingItem("Limited Edition"),
+            ShoppingItem("Exclusive Deals")
         )
 
         val adapter = ShoppingAdapter(items)
-        recyclerView.adapter = adapter
-
-
-
+        categoryRecyclerView.adapter = adapter
 
         return view
 

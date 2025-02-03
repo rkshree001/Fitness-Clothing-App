@@ -76,6 +76,7 @@
     <color name="initalColor">#eeeeee</color>
     <color name="changedColor">#f1742b</color>
     <color name="black">#FF000000</color>
+    <color name="gray_8D95A3">#8D95A3</color>
     <color name="white">#FFFFFFFF</color>
     <color name="newlight_grey">#B9000000</color>
     <color name="reorderbg">#f8fcd4</color>

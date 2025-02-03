@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home_icon"
+        android:title="Home" />
+    <item
+        android:id="@+id/navigation_notification"
+        android:icon="@drawable/notification_icon"
+        android:title="Notification" />
+
+    <item
+        android:id="@+id/navigation_location"
+        android:icon="@drawable/location_icon"
+        android:title="Location" />
+    <item
+        android:id="@+id/navigation_user"
+        android:icon="@drawable/user_icon"
+        android:title="User" />
+</menu>
