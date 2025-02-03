@@ -11,10 +11,12 @@ import com.fca.fitnessclothingapp.R
 import com.fca.fitnessclothingapp.modelclass.ShoppingItem
 
 class ShoppingProcessFragment : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val view = inflater.inflate(R.layout.fragment_shopping_process, container, false)
 
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
@@ -31,6 +33,11 @@ class ShoppingProcessFragment : Fragment() {
         val adapter = ShoppingAdapter(items)
         recyclerView.adapter = adapter
 
+
+
+
         return view
+
+
     }
 }
