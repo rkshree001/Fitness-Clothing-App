@@ -182,6 +182,7 @@
                         android:layout_weight="0.5">
 
                         <TextView
+                            android:id="@+id/productRateTextView"
                             android:gravity="end"
                             android:paddingHorizontal="30dp"
                             android:layout_gravity="end"

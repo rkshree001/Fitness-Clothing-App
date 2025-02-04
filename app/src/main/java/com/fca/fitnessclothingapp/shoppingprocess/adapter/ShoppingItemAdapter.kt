@@ -28,7 +28,7 @@ class ShoppingItemAdapter(
     override fun onBindViewHolder(holder: ShoppingItemViewHolder,  position: Int) {
         val item = shoppingItems[position]
         holder.productName.text = item.productName
-        holder.productRate.text = item.productRate
+        holder.productRate.text = "$ ${item.productRate}"
         holder.productDesc.text = item.productDesc
         holder.productImage.setImageResource(item.productImage)
 

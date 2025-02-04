@@ -51,23 +51,23 @@ class NewReleasesScreenActivity : AppCompatActivity() {
         val shoppingItems = listOf(
             ShoppingItem(
                 productName = "Swoosh T-Shirt",
-                productRate = "$95",
+                productRate = "95",
                 productDesc = "Women's Light support",
                 productImage = R.drawable.fit_girl
             ),
             ShoppingItem(
                 productName = "Pro Dri-Fit",
-                productRate = "$70",
+                productRate = "70",
                 productDesc = "Man's Tank Top",
                 productImage = R.drawable.fit_boy
             ),ShoppingItem(
                 productName = "Dri-FIT UltraBreathe",
-                productRate = "$65",
+                productRate = "65",
                 productDesc = "Padded Sports Bra",
                 productImage = R.drawable.dry_fit_top
             ),ShoppingItem(
                 productName = "Long Sleeve Top",
-                productRate = "$95",
+                productRate = "95",
                 productDesc = "Women's Velour",
                 productImage = R.drawable.long_slevee_top
             )
