@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+  >
+
+        <FrameLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="#F4F4F4" />
+
+            <ImageView
+
+                android:id="@+id/productImage"
+                android:layout_gravity="center"
+                android:layout_width="211dp"
+                android:layout_height="170dp"
+                android:src="@drawable/fit_girl" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/popins_regular"
+            android:id="@+id/productName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Pro Dri-Fit"
+            />
+
+
+
+
+        <TextView
+            android:id="@+id/productDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Man's Tank Top"
+            android:fontFamily="@font/popins_regular"
+            android:textColor="@color/gray_8D95A3" />
+
+
+        <TextView
+            android:id="@+id/productRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:text="$70"
+            android:fontFamily="@font/popins_regular"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+</LinearLayout>

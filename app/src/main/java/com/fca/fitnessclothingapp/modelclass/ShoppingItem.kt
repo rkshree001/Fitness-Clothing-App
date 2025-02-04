@@ -1,3 +1,10 @@
 package com.fca.fitnessclothingapp.modelclass
 
-data class ShoppingItem(val name: String )
+import java.io.Serializable
+
+data class ShoppingItem(
+    val productName: String,
+    val productRate: String,
+    val productDesc: String,
+    val productImage: Int
+) : Serializable

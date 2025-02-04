@@ -1,4 +1,4 @@
-package com.fca.fitnessclothingapp.shoppingprocess
+package com.fca.fitnessclothingapp.shoppingprocess.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,10 +6,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.fca.fitnessclothingapp.R
-import com.fca.fitnessclothingapp.modelclass.ShoppingItem
+import com.fca.fitnessclothingapp.modelclass.CategoryItem
+import com.fca.fitnessclothingapp.viewmodel.ShoppingProcessViewModel
 
-class ShoppingAdapter(private val itemList: List<ShoppingItem>) :
-    RecyclerView.Adapter<ShoppingAdapter.ViewHolder>() {
+class ShoppingAdapter(
+    private val itemList: List<CategoryItem>,
+    private val viewModel: ShoppingProcessViewModel
+) : RecyclerView.Adapter<ShoppingAdapter.ViewHolder>() {
 
     private var selectedPosition = 0
 
@@ -27,7 +30,6 @@ class ShoppingAdapter(private val itemList: List<ShoppingItem>) :
         val item = itemList[position]
         holder.textView.text = item.name
 
-
         if (position == selectedPosition) {
             holder.textView.setTextColor(holder.itemView.context.getColor(R.color.black))
         } else {
@@ -38,6 +40,9 @@ class ShoppingAdapter(private val itemList: List<ShoppingItem>) :
         holder.itemView.setOnClickListener {
             selectedPosition = position
             notifyDataSetChanged()
+
+
+            viewModel.onCategorySelected(item.name)
         }
     }
 
