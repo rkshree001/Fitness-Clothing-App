@@ -17,6 +17,8 @@ import com.fca.fitnessclothingapp.modelclass.CategoryItem
 import com.fca.fitnessclothingapp.modelclass.ShoppingItem
 import com.fca.fitnessclothingapp.shoppingprocess.adapter.ShoppingAdapter
 import com.fca.fitnessclothingapp.shoppingprocess.adapter.ShoppingItemAdapter
+import com.fca.fitnessclothingapp.sportscenter.SportsCenterActivity
+import com.fca.fitnessclothingapp.useraccountactivity.UserAccountActivity
 import com.fca.fitnessclothingapp.viewmodel.ShoppingProcessViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -39,6 +41,25 @@ class ShoppingProcessFragment : Fragment() {
 //        categoryContentRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         categoryContentRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         val bottomNavigationView: BottomNavigationView = view.findViewById(R.id.bottomNavigationView)
+
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_user -> {
+                    val intent = Intent(requireContext(), UserAccountActivity::class.java)
+                    startActivity(intent)
+                    requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+                    true
+                }
+                R.id.navigation_location -> {
+                    val intent = Intent(requireContext(), SportsCenterActivity::class.java)
+                    startActivity(intent)
+                    requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+                    true
+                }
+                else -> false
+            }
+        }
+
 
         bottomNavigationView.itemRippleColor = null
 

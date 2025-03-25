@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".sportscenter.SportsCenterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sport Centers"
+            android:textAlignment="textEnd"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="#333333"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"/>
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/white"
+                app:hintTextColor="@color/black"
+                android:layout_marginHorizontal="20dp"
+                app:boxBackgroundColor="@color/white"
+                android:textColorHint="@color/black"
+                app:boxCornerRadiusBottomEnd="22dp"
+                app:boxCornerRadiusBottomStart="22dp"
+                app:boxCornerRadiusTopEnd="22dp"
+                app:hintEnabled="false"
+                app:hintAnimationEnabled="false"
+
+                app:boxCornerRadiusTopStart="22dp"
+                app:boxStrokeWidth="1dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/searchLocationEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:hint="Search center"
+                    android:minHeight="45dp"
+                    android:drawableLeft="@drawable/search_icon"
+                    android:paddingTop="8dp"
+                    android:drawablePadding="20dp"
+                    android:paddingBottom="8dp"
+                    android:textColor="@color/black"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="13dp"
+                    android:maxLines="1"
+                    android:inputType="textNoSuggestions"
+                    android:textColorHint="@color/black"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="324dp"
+                android:orientation="vertical">
+
+                <com.google.android.gms.maps.MapView
+                    android:id="@+id/mapView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/searchedAreas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/searchedAreasRecyclerview">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+        </LinearLayout>
+<!--        <ScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+<!--     -->
+
+<!--        </ScrollView>-->
+
+    </LinearLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="0dp"
+            app:itemRippleColor="@null"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            app:itemIconTint="@color/bottom_nav_color"
+            app:labelVisibilityMode="unlabeled"
+            app:menu="@menu/bottom_nav_menu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

@@ -16,19 +16,24 @@ import com.fca.fitnessclothingapp.R
 import com.fca.fitnessclothingapp.authentication.SIgnInFCA
 import com.fca.fitnessclothingapp.modelclass.ShoppingItem
 import com.fca.fitnessclothingapp.shoppingprocess.adapter.ShoppingItemAdapter
+import com.fca.fitnessclothingapp.sportscenter.SportsCenterActivity
+import com.fca.fitnessclothingapp.useraccountactivity.UserAccountActivity
 import com.fca.fitnessclothingapp.viewmodel.ShoppingProcessViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class NewReleasesScreenActivity : AppCompatActivity() {
     private val shoppingProcessViewModel: ShoppingProcessViewModel by viewModels()
 
     private lateinit var categoryContentRecyclerView : RecyclerView
     private lateinit var navigate_back: LinearLayout
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_new_releases_screen)
         navigate_back = findViewById(R.id.navigate_back)
+        bottomNavigationView = findViewById(R.id.bottomNavigationView)
 
         categoryContentRecyclerView = findViewById(R.id.categoryContentRecyclerView)
         categoryContentRecyclerView.layoutManager = GridLayoutManager(this, 2)
@@ -45,6 +50,28 @@ class NewReleasesScreenActivity : AppCompatActivity() {
             fragmentTransaction.commit()
 
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        }
+
+
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_user -> {
+                    val intent = Intent(this, UserAccountActivity::class.java)
+                    startActivity(intent)
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+                    true
+                }
+
+                R.id.navigation_location -> {
+                    val intent = Intent(this, SportsCenterActivity::class.java)
+                    startActivity(intent)
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+                    true
+                }
+                else -> false
+
+
+            }
         }
 
 
