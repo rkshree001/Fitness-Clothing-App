@@ -17,15 +17,37 @@ class NotificationsInboxActivity : AppCompatActivity() {
 
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var user1: LinearLayout
+    private lateinit var user2: LinearLayout
+    private lateinit var user3: LinearLayout
+    private lateinit var navigate_back: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notifications_inbox)
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        navigate_back = findViewById(R.id.navigate_back)
+        user1 = findViewById(R.id.user1)
+        user2 = findViewById(R.id.user2)
+        user3 = findViewById(R.id.user3)
+
+        user1.setOnClickListener {
+            startActivity(Intent(this, NotificationChatActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        }
+
+        user2.setOnClickListener {
+            startActivity(Intent(this, NotificationChatActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        }
+
+        user3.setOnClickListener {
+            startActivity(Intent(this, NotificationChatActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        }
 
         bottomNavigationView.itemRippleColor = null
-        bottomNavigationView.selectedItemId = R.id.navigation_location
+        bottomNavigationView.selectedItemId = R.id.navigation_notification
 
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -53,7 +75,32 @@ class NotificationsInboxActivity : AppCompatActivity() {
             }
         }
 
-        user1
+
+        navigate_back.setOnClickListener {
+            val shoppingProcessFragment = ShoppingProcessFragment()
+
+            supportFragmentManager.beginTransaction()
+                .replace(android.R.id.content, shoppingProcessFragment)
+                .addToBackStack(null)
+                .commit()
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        }
+
+
+
 
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val shoppingProcessFragment = ShoppingProcessFragment()
+
+        supportFragmentManager.beginTransaction()
+            .replace(android.R.id.content, shoppingProcessFragment)
+            .addToBackStack(null)
+            .commit()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
+
+
 }
