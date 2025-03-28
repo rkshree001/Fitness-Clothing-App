@@ -6,8 +6,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.fca.fitnessclothingapp.R
-import com.fca.fitnessclothingapp.shoppingprocess.    ShoppingProcessFragment
-
+import com.fca.fitnessclothingapp.shoppingprocess.ShoppingProcessFragment
 class SIgnInFCA : AppCompatActivity() {
 
     private lateinit var navigate_wlc_scn: LinearLayout

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.fca.fitnessclothingapp.R
 import com.fca.fitnessclothingapp.authentication.SIgnInFCA
 import com.fca.fitnessclothingapp.modelclass.ShoppingItem
+import com.fca.fitnessclothingapp.notification.NotificationsInboxActivity
 import com.fca.fitnessclothingapp.shoppingprocess.adapter.ShoppingItemAdapter
 import com.fca.fitnessclothingapp.sportscenter.SportsCenterActivity
 import com.fca.fitnessclothingapp.useraccountactivity.UserAccountActivity
@@ -65,6 +66,11 @@ class NewReleasesScreenActivity : AppCompatActivity() {
                 R.id.navigation_location -> {
                     val intent = Intent(this, SportsCenterActivity::class.java)
                     startActivity(intent)
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+                    true
+                }
+                R.id.navigation_notification -> {
+                    startActivity(Intent(this, NotificationsInboxActivity::class.java))
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                     true
                 }

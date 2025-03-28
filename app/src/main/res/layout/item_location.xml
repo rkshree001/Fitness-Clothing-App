@@ -2,14 +2,51 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/locationNameTextView"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#000000"
-        android:padding="8dp"/>
+        android:layout_marginHorizontal="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/locationNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="Sports Club"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="#000000"
+            />
+
+        <TextView
+            android:id="@+id/ratings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4.6 Ratings"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="#000000"
+            />
+
+        <TextView
+            android:textSize="11dp"
+            android:textColor="#8D95A3"
+            android:id="@+id/fullAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textSize="11dp"
+            android:textColor="#8D95A3"
+            android:id="@+id/phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""/>
+        <View
+            android:layout_marginVertical="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"/>
+    </LinearLayout>
 </LinearLayout>

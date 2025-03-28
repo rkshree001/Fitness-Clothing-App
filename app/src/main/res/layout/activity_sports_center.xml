@@ -35,22 +35,18 @@
                 app:boxStrokeColor="@color/white"
                 app:hintTextColor="@color/black"
                 android:layout_marginHorizontal="20dp"
-                app:boxBackgroundColor="@color/white"
                 android:textColorHint="@color/black"
-                app:boxCornerRadiusBottomEnd="22dp"
-                app:boxCornerRadiusBottomStart="22dp"
-                app:boxCornerRadiusTopEnd="22dp"
-                app:hintEnabled="false"
-                app:hintAnimationEnabled="false"
 
-                app:boxCornerRadiusTopStart="22dp"
-                app:boxStrokeWidth="1dp"
+                app:hintEnabled="false"
+
+                app:hintAnimationEnabled="false"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/searchLocationEditText"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
+                    android:background="@drawable/edit_text_black_22dp"
                     android:hint="Search center"
                     android:minHeight="45dp"
                     android:drawableLeft="@drawable/search_icon"

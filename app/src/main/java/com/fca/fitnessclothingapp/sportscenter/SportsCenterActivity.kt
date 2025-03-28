@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fca.fitnessclothingapp.R
+import com.fca.fitnessclothingapp.notification.NotificationsInboxActivity
 import com.fca.fitnessclothingapp.shoppingprocess.ShoppingProcessFragment
 import com.fca.fitnessclothingapp.useraccountactivity.UserAccountActivity
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -86,6 +87,11 @@ class SportsCenterActivity : AppCompatActivity(), OnMapReadyCallback {
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                     true
                 }
+                R.id.navigation_notification -> {
+                    startActivity(Intent(this, NotificationsInboxActivity::class.java))
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+                    true
+                }
                 else -> false
             }
         }
@@ -96,9 +102,11 @@ class SportsCenterActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
         searchedAreasRecyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = LocationAdapter(locationList) { selectedPlace ->
+        adapter = LocationAdapter(locationList, { selectedPlace ->
             val placeId = selectedPlace.placeId
-            val placeRequest = FetchPlaceRequest.newInstance(placeId, listOf(Place.Field.LAT_LNG))
+            val placeRequest = FetchPlaceRequest.newInstance(
+                placeId, listOf(Place.Field.LAT_LNG, Place.Field.ADDRESS, Place.Field.RATING, Place.Field.PHONE_NUMBER)
+            )
 
             placesClient.fetchPlace(placeRequest)
                 .addOnSuccessListener { response ->
@@ -109,7 +117,8 @@ class SportsCenterActivity : AppCompatActivity(), OnMapReadyCallback {
                         googleMap.addMarker(
                             MarkerOptions()
                                 .position(latLng)
-                                .title(selectedPlace.getFullText(null).toString())
+                                .title(place.address ?: "Selected Location")
+                                .snippet("Rating: ${place.rating ?: "N/A"} | Phone: ${place.phoneNumber ?: "N/A"}")
                         )
                         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
                     }
@@ -117,7 +126,8 @@ class SportsCenterActivity : AppCompatActivity(), OnMapReadyCallback {
                 .addOnFailureListener { exception ->
                     Log.e("PlacesAPI", "Place not found: ${exception.message}")
                 }
-        }
+        }, placesClient)
+
         searchedAreasRecyclerView.adapter = adapter
 
         searchLocationEditText.addTextChangedListener(object : TextWatcher {

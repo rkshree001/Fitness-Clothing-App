@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.fca.fitnessclothingapp.R
 import com.fca.fitnessclothingapp.modelclass.CategoryItem
 import com.fca.fitnessclothingapp.modelclass.ShoppingItem
+import com.fca.fitnessclothingapp.notification.NotificationsInboxActivity
 import com.fca.fitnessclothingapp.shoppingprocess.adapter.ShoppingAdapter
 import com.fca.fitnessclothingapp.shoppingprocess.adapter.ShoppingItemAdapter
 import com.fca.fitnessclothingapp.sportscenter.SportsCenterActivity
@@ -52,6 +53,11 @@ class ShoppingProcessFragment : Fragment() {
                 }
                 R.id.navigation_location -> {
                     val intent = Intent(requireContext(), SportsCenterActivity::class.java)
+                    startActivity(intent)
+                    requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+                    true
+                } R.id.navigation_notification -> {
+                    val intent = Intent(requireContext(), NotificationsInboxActivity::class.java)
                     startActivity(intent)
                     requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                     true
