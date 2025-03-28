@@ -50,11 +50,13 @@
         <activity
             android:name=".authentication.SIgnInFCA"
             android:exported="false" />
-        <activity
-            android:name=".authentication.WelcomeScreen"
-            android:exported="false" />
+
         <activity
             android:name=".sportscenter.SportsCenterActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".authentication.WelcomeScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
